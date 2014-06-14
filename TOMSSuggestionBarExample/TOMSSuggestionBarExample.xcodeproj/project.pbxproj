@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32CBEE52E9ED42D2916B3F77 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B18CAB7EAB8485B8BF395E5 /* libPods.a */; };
 		A6C35F07194CFB990089EFB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C35F06194CFB990089EFB0 /* main.m */; };
 		A6C35F0A194CFB990089EFB0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C35F09194CFB990089EFB0 /* AppDelegate.m */; };
 		A6C35F0D194CFB990089EFB0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C35F0C194CFB990089EFB0 /* ViewController.m */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B18CAB7EAB8485B8BF395E5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C35F01194CFB990089EFB0 /* TOMSSuggestionBarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOMSSuggestionBarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C35F05194CFB990089EFB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6C35F06194CFB990089EFB0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,6 +40,7 @@
 		A6C35F17194CFB990089EFB0 /* TOMSSuggestionBarExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TOMSSuggestionBarExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C35F1C194CFB990089EFB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6C35F1D194CFB990089EFB0 /* TOMSSuggestionBarExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOMSSuggestionBarExampleTests.m; sourceTree = "<group>"; };
+		BB0BB984AF66413FAF483A16 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32CBEE52E9ED42D2916B3F77 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +62,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		177219D6882A4089BFC690D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B18CAB7EAB8485B8BF395E5 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A6C35EF8194CFB990089EFB0 = {
 			isa = PBXGroup;
 			children = (
 				A6C35F03194CFB990089EFB0 /* TOMSSuggestionBarExample */,
 				A6C35F1A194CFB990089EFB0 /* TOMSSuggestionBarExampleTests */,
 				A6C35F02194CFB990089EFB0 /* Products */,
+				BB0BB984AF66413FAF483A16 /* Pods.xcconfig */,
+				177219D6882A4089BFC690D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,9 +137,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6C35F21194CFB990089EFB0 /* Build configuration list for PBXNativeTarget "TOMSSuggestionBarExample" */;
 			buildPhases = (
+				436357291A154245BB0E98AA /* Check Pods Manifest.lock */,
 				A6C35EFD194CFB990089EFB0 /* Sources */,
 				A6C35EFE194CFB990089EFB0 /* Frameworks */,
 				A6C35EFF194CFB990089EFB0 /* Resources */,
+				44FC9BA5AE0442CDB958A5CC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,6 +225,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		436357291A154245BB0E98AA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		44FC9BA5AE0442CDB958A5CC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A6C35EFD194CFB990089EFB0 /* Sources */ = {
@@ -329,6 +378,7 @@
 		};
 		A6C35F22194CFB990089EFB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB0BB984AF66413FAF483A16 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -340,6 +390,7 @@
 		};
 		A6C35F23194CFB990089EFB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB0BB984AF66413FAF483A16 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -404,6 +455,7 @@
 				A6C35F23194CFB990089EFB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A6C35F24194CFB990089EFB0 /* Build configuration list for PBXNativeTarget "TOMSSuggestionBarExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +464,7 @@
 				A6C35F26194CFB990089EFB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

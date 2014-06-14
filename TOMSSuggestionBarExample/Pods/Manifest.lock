@@ -1,0 +1,58 @@
+PODS:
+  - AFIncrementalStore (0.5.1):
+    - AFNetworking (~> 1.3.2)
+    - InflectorKit
+    - TransformerKit
+  - AFNetworking (1.3.4)
+  - InflectorKit (0.0.1)
+  - TOMSCoreDataManager (0.1.0):
+    - AFIncrementalStore
+  - TOMSMorphingLabel (0.1.0)
+  - TOMSSuggestionBar (0.1.0):
+    - TOMSCoreDataManager
+    - TOMSMorphingLabel
+  - TransformerKit (0.5.0):
+    - TransformerKit/Core
+    - TransformerKit/Cryptography
+    - TransformerKit/Data
+    - TransformerKit/Date
+    - TransformerKit/Image
+    - TransformerKit/JSON
+    - TransformerKit/String
+  - TransformerKit/Core (0.5.0)
+  - TransformerKit/Cryptography (0.5.0):
+    - TransformerKit/Core
+  - TransformerKit/Data (0.5.0):
+    - TransformerKit/Core
+  - TransformerKit/Date (0.5.0):
+    - TransformerKit/Core
+  - TransformerKit/Image (0.5.0):
+    - TransformerKit/Core
+  - TransformerKit/JSON (0.5.0):
+    - TransformerKit/Core
+  - TransformerKit/String (0.5.0):
+    - TransformerKit/Core
+
+DEPENDENCIES:
+  - TOMSCoreDataManager (from `https://github.com/TomKnig/TOMSCoreDataManager.git`)
+  - TOMSMorphingLabel (from `../../TOMSMorphingLabel`)
+  - TOMSSuggestionBar (from `../`)
+
+EXTERNAL SOURCES:
+  TOMSCoreDataManager:
+    :git: https://github.com/TomKnig/TOMSCoreDataManager.git
+  TOMSMorphingLabel:
+    :path: ../../TOMSMorphingLabel
+  TOMSSuggestionBar:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AFIncrementalStore: 70ca00126363d691a2569c831eb2b016f984643b
+  AFNetworking: 80c4e0652b08eb34e25b9c0ff3c82556fe5967b4
+  InflectorKit: bb1f5c9feb01d17450b8bcdeb7ab1ef1832b2247
+  TOMSCoreDataManager: d4845321000a3f47fa81c97a0f482352645ef2a5
+  TOMSMorphingLabel: aab1b4efa08f189f6c89dcb39a1a5ba1c98a784e
+  TOMSSuggestionBar: 8ba3abea870aab5bb22e9d7deb0453bd5e19629b
+  TransformerKit: be60349177a82a0747c7fb7897c1367754d295d8
+
+COCOAPODS: 0.33.1

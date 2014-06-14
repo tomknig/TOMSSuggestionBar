@@ -1,0 +1,5 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFIncrementalStore" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/InflectorKit" "${PODS_ROOT}/Headers/TOMSCoreDataManager" "${PODS_ROOT}/Headers/TOMSMorphingLabel" "${PODS_ROOT}/Headers/TOMSSuggestionBar" "${PODS_ROOT}/Headers/TransformerKit"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/AFIncrementalStore" -isystem "${PODS_ROOT}/Headers/AFNetworking" -isystem "${PODS_ROOT}/Headers/InflectorKit" -isystem "${PODS_ROOT}/Headers/TOMSCoreDataManager" -isystem "${PODS_ROOT}/Headers/TOMSMorphingLabel" -isystem "${PODS_ROOT}/Headers/TOMSSuggestionBar" -isystem "${PODS_ROOT}/Headers/TransformerKit"
+OTHER_LDFLAGS = -ObjC -framework CoreData -framework CoreGraphics -framework MobileCoreServices -framework Security -framework SystemConfiguration
+PODS_ROOT = ${SRCROOT}/Pods
