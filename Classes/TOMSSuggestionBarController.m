@@ -7,43 +7,84 @@
 //
 
 #import "TOMSSuggestionBarController.h"
-
-@interface TOMSSuggestionBarController ()
-
-@end
+#import "TOMSSuggestionBarView.h"
+#import "TOMSSuggestionBarCell.h"
 
 @implementation TOMSSuggestionBarController
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#pragma mark - Initialization
+
+- (instancetype)initWithSuggestionBarView:(TOMSSuggestionBarView *)suggestionBarView
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        CGRect suggestionBarViewFrame = suggestionBarView.frame;
+        self.collectionView = suggestionBarView;
+        self.collectionView.frame = suggestionBarViewFrame;
     }
     return self;
 }
 
-- (void)viewDidLoad
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    return 1;
 }
 
-- (void)didReceiveMemoryWarning
+- (NSInteger)collectionView:(UICollectionView *)collectionView
+     numberOfItemsInSection:(NSInteger)section
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return ((TOMSSuggestionBarView *)self.collectionView).numberOfSuggestionFields;
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - TOMSCoreDataManagerDataSource
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (NSString *)modelName
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    return ((TOMSSuggestionBarView *)self.collectionView).modelName;
 }
-*/
+
+- (NSString *)entityName
+{
+    return ((TOMSSuggestionBarView *)self.collectionView).entityName;
+}
+
+- (NSString *)cellIdentifierForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString * const cellIdentifier = @"kTOMSSuggestionBarCell";
+    return cellIdentifier;
+}
+
+- (NSPredicate *)defaultPredicate
+{
+    return [NSPredicate predicateWithFormat:@"%@.length > 0", ((TOMSSuggestionBarView *)self.collectionView).attributeName];
+}
+
+- (NSArray *)defaultSortDescriptors
+{
+    return @[[NSSortDescriptor sortDescriptorWithKey:((TOMSSuggestionBarView *)self.collectionView).attributeName ascending:YES]];
+}
+
+- (void)configureCell:(id)cell
+         forIndexPath:(NSIndexPath *)indexPath
+{
+    TOMSSuggestionBarCell *suggestionBarCell = (TOMSSuggestionBarCell *)cell;
+    NSString *text;
+    
+    @try {
+        NSManagedObject *object = [self.coreDataFetchController objectAtIndexPath:indexPath];
+        if (object) {
+            text = [object valueForKeyPath:((TOMSSuggestionBarView *)self.collectionView).attributeName];
+        } else {
+            @throw [NSException exceptionWithName:@"TOMSObjectNotFoundException" reason:@"Did not fetch enaugh data to fill all of the cells." userInfo:nil];
+        }
+    }
+    @catch (NSException *exception) {
+        text = @"";
+    }
+    
+    suggestionBarCell.textLabel.text = text;
+}
 
 @end

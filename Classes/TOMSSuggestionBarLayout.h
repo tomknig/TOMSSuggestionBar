@@ -10,4 +10,7 @@
 
 @interface TOMSSuggestionBarLayout : UICollectionViewFlowLayout
 
+- (instancetype)initWithFrame:(CGRect)frame
+     numberOfSuggestionFields:(NSInteger)numberOfSuggestionFields;
+
 @end

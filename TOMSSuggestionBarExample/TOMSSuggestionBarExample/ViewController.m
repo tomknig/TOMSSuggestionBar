@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import <TOMSCoreDataManager/TOMSCoreDataManager.h>
+#import <TOMSSuggestionBar/TOMSSuggestionBar.h>
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textField;
@@ -18,7 +20,11 @@
 {
     [super viewDidLoad];
     
-    
+    TOMSSuggestionBar *suggestionBar = [[TOMSSuggestionBar alloc] init];
+    [suggestionBar subscribeTextInputView:self.textField
+           toSuggestionsForAttributeNamed:@"name"
+                            ofEntityNamed:@"Person"
+                             inModelNamed:@"Model"];
 }
 
 @end

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <TOMSMorphingLabel/TOMSMorphingLabel.h>
 
 @interface TOMSSuggestionBarCell : UICollectionViewCell
+
+@property (nonatomic, strong) TOMSMorphingLabel *textLabel;
 
 @end

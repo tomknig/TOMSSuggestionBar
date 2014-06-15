@@ -8,6 +8,10 @@
 
 #import "TOMSCoreDataCollectionViewController.h"
 
+@class TOMSSuggestionBarView;
+
 @interface TOMSSuggestionBarController : TOMSCoreDataCollectionViewController
+
+- (instancetype)initWithSuggestionBarView:(TOMSSuggestionBarView *)suggestionBarView;
 
 @end

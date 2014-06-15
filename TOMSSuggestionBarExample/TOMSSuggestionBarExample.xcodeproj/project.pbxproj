@@ -14,6 +14,8 @@
 		A6C35F10194CFB990089EFB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C35F0E194CFB990089EFB0 /* Main.storyboard */; };
 		A6C35F12194CFB990089EFB0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6C35F11194CFB990089EFB0 /* Images.xcassets */; };
 		A6C35F1E194CFB990089EFB0 /* TOMSSuggestionBarExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C35F1D194CFB990089EFB0 /* TOMSSuggestionBarExampleTests.m */; };
+		A6C35F38194D16770089EFB0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6C35F36194D16770089EFB0 /* Model.xcdatamodeld */; };
+		A6C35F3B194D169D0089EFB0 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C35F3A194D169D0089EFB0 /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,9 @@
 		A6C35F17194CFB990089EFB0 /* TOMSSuggestionBarExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TOMSSuggestionBarExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C35F1C194CFB990089EFB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6C35F1D194CFB990089EFB0 /* TOMSSuggestionBarExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOMSSuggestionBarExampleTests.m; sourceTree = "<group>"; };
+		A6C35F37194D16770089EFB0 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		A6C35F39194D169D0089EFB0 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		A6C35F3A194D169D0089EFB0 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		BB0BB984AF66413FAF483A16 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +98,7 @@
 		A6C35F03194CFB990089EFB0 /* TOMSSuggestionBarExample */ = {
 			isa = PBXGroup;
 			children = (
+				A6C35F35194D166C0089EFB0 /* Model */,
 				A6C35F08194CFB990089EFB0 /* AppDelegate.h */,
 				A6C35F09194CFB990089EFB0 /* AppDelegate.m */,
 				A6C35F0B194CFB990089EFB0 /* ViewController.h */,
@@ -128,6 +134,16 @@
 				A6C35F1C194CFB990089EFB0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A6C35F35194D166C0089EFB0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A6C35F36194D16770089EFB0 /* Model.xcdatamodeld */,
+				A6C35F39194D169D0089EFB0 /* Person.h */,
+				A6C35F3A194D169D0089EFB0 /* Person.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +282,9 @@
 			files = (
 				A6C35F0D194CFB990089EFB0 /* ViewController.m in Sources */,
 				A6C35F0A194CFB990089EFB0 /* AppDelegate.m in Sources */,
+				A6C35F3B194D169D0089EFB0 /* Person.m in Sources */,
 				A6C35F07194CFB990089EFB0 /* main.m in Sources */,
+				A6C35F38194D16770089EFB0 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +485,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A6C35F36194D16770089EFB0 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A6C35F37194D16770089EFB0 /* Model.xcdatamodel */,
+			);
+			currentVersion = A6C35F37194D16770089EFB0 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A6C35EF9194CFB990089EFB0 /* Project object */;
 }
