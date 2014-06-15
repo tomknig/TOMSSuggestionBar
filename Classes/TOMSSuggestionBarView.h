@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define kTOMSSuggestionCellPadding 2.f
+
 @interface TOMSSuggestionBarView : UICollectionView
 
 - (instancetype)initWithFrame:(CGRect)frame

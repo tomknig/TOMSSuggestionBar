@@ -7,6 +7,7 @@
 //
 
 #import "TOMSSuggestionBarLayout.h"
+#import "TOMSSuggestionBarView.h"
 
 @implementation TOMSSuggestionBarLayout
 
@@ -15,9 +16,9 @@
 {
     self = [super init];
     if (self) {
-        CGFloat width = floorf(frame.size.width / (CGFloat)numberOfSuggestionFields);
+        CGFloat width = (frame.size.width - (numberOfSuggestionFields - 1) * kTOMSSuggestionCellPadding) / (CGFloat)numberOfSuggestionFields;
         self.itemSize = CGSizeMake(width, frame.size.height);
-        self.minimumInteritemSpacing = 0;
+        self.minimumInteritemSpacing = kTOMSSuggestionCellPadding;
     }
     return self;
 }
