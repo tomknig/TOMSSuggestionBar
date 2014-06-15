@@ -25,6 +25,13 @@
     return self;
 }
 
+#pragma mark - Suggesting
+
+- (void)suggestableTextDidChange:(NSString *)context
+{
+    self.coreDataFetchController.predicate = [NSPredicate predicateWithFormat:@"%K LIKE[cd] %@", [self attributeName], [NSString stringWithFormat:@"*%@*", context]];
+}
+
 #pragma mark - Bridged Getters
 
 - (NSInteger)numberOfSuggestionFields
@@ -118,6 +125,7 @@
     @catch (NSException *exception) {
         text = @"";
     }
+    
     
     suggestionBarCell.textLabel.text = text;
 }

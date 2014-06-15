@@ -14,4 +14,6 @@
 
 - (instancetype)initWithSuggestionBarView:(TOMSSuggestionBarView *)suggestionBarView;
 
+- (void)suggestableTextDidChange:(NSString *)context;
+
 @end

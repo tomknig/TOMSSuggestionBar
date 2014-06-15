@@ -8,9 +8,11 @@
 
 #import "TOMSSuggestionBar.h"
 #import "TOMSSuggestionBarView.h"
+#import "TOMSSuggestionBarController.h"
 
 @interface TOMSSuggestionBar ()
 @property (nonatomic, strong) TOMSSuggestionBarView *suggestionBarView;
+@property (nonatomic, weak) UIControl<UITextInput> *textInputView;
 @end
 
 @implementation TOMSSuggestionBar
@@ -46,7 +48,7 @@
 
 #pragma mark - Suggestion setup
 
-- (BOOL)subscribeTextInputView:(id)textInputView
+- (BOOL)subscribeTextInputView:(UIControl<UITextInput> *)textInputView
 toSuggestionsForAttributeNamed:(NSString *)attributeName
                  ofEntityNamed:(NSString *)entityName
                   inModelNamed:(NSString *)modelName
@@ -56,13 +58,48 @@ toSuggestionsForAttributeNamed:(NSString *)attributeName
         self.suggestionBarView.entityName = entityName;
         self.suggestionBarView.modelName = modelName;
         
-        [textInputView performSelector:@selector(setInputAccessoryView:)
-                            withObject:self.suggestionBarView];
+        self.textInputView = textInputView;
+        
+        [self.textInputView performSelector:@selector(setInputAccessoryView:)
+                                 withObject:self.suggestionBarView];
+        
+        [self.textInputView addTarget:self
+                               action:@selector(textChanged:)
+                     forControlEvents:UIControlEventEditingChanged];
+        
         return YES;
     }
     return NO;
 }
 
+- (void)dealloc
+{
+    [self.textInputView removeTarget:self
+                              action:@selector(textChanged:)
+                    forControlEvents:UIControlEventEditingChanged];
+}
+
+#pragma mark - Suggesting
+
+- (void)textChanged:(UIControl<UITextInput> *)textInputView
+{
+    UITextRange *wholeTextRange = [textInputView textRangeFromPosition:textInputView.beginningOfDocument
+                                                            toPosition:textInputView.endOfDocument];
+    NSString *wholeText = [textInputView textInRange:wholeTextRange];
+    
+    NSRange lastWordRange = [wholeText rangeOfString:@" "
+                                             options:NSBackwardsSearch];
+    
+    NSString *lastWord;
+    
+    if (lastWordRange.location == NSNotFound) {
+        lastWord = wholeText;
+    } else {
+        lastWord = [wholeText substringFromIndex:lastWordRange.location + 1];
+    }
+    
+    [self.suggestionBarView.suggestionBarController suggestableTextDidChange:lastWord];
+}
 
 #pragma mark - Passing setters
 

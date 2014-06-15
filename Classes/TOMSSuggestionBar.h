@@ -13,7 +13,7 @@
 
 - (instancetype)initWithNumberOfSuggestionFields:(NSInteger)numberOfSuggestionFields;
 
-- (BOOL)subscribeTextInputView:(id)textInputView
+- (BOOL)subscribeTextInputView:(UIControl<UITextInput> *)textInputView
 toSuggestionsForAttributeNamed:(NSString *)attributeName
                  ofEntityNamed:(NSString *)entityName
                   inModelNamed:(NSString *)modelName;

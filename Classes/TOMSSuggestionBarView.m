@@ -12,10 +12,6 @@
 #import "TOMSSuggestionBarCell.h"
 #import "TOMSSuggestionBar.h"
 
-@interface TOMSSuggestionBarView ()
-@property (nonatomic, strong) TOMSSuggestionBarController *suggestionBarController;//TODO: does it have to be strong?
-@end
-
 @implementation TOMSSuggestionBarView
 
 #pragma mark - Initialization

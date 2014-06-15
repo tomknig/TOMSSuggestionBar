@@ -10,11 +10,16 @@
 
 #define kTOMSSuggestionCellPadding 2.f
 
+@class TOMSSuggestionBarController;
+
 @interface TOMSSuggestionBarView : UICollectionView
 
 - (instancetype)initWithFrame:(CGRect)frame
      numberOfSuggestionFields:(NSInteger)numberOfSuggestionFields;
 
+- (void)textChanged:(NSString *)context;
+
+@property (nonatomic, strong) TOMSSuggestionBarController *suggestionBarController;
 @property (nonatomic, assign) NSInteger numberOfSuggestionFields;
 @property (nonatomic, strong) NSString *attributeName;
 @property (nonatomic, strong) NSString *entityName;
