@@ -25,12 +25,20 @@
     if (self) {
         self.numberOfSuggestionFields = numberOfSuggestionFields;
         
-        [self registerClass:[TOMSSuggestionBarCell class] forCellWithReuseIdentifier:@"kTOMSSuggestionBarCell"];
+        [self registerCellClasses];
         self.suggestionBarController = [[TOMSSuggestionBarController alloc] initWithSuggestionBarView:self];
         self.backgroundColor = [TOMSSuggestionBar defaultBackgroundColor];
         self.delegate = self.suggestionBarController;
     }
     return self;
+}
+
+- (void)registerCellClasses
+{
+    static NSString * const cellIdentifier = @"kTOMSSuggestionBarCell";
+    for (int i = 0; i < self.numberOfSuggestionFields; ++i) {
+        [self registerClass:[TOMSSuggestionBarCell class] forCellWithReuseIdentifier:[cellIdentifier stringByAppendingFormat:@"_%d", i]];
+    }
 }
 
 @end

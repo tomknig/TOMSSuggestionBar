@@ -32,6 +32,30 @@
     self.coreDataFetchController.predicate = [NSPredicate predicateWithFormat:@"%K LIKE[cd] %@", [self attributeName], [NSString stringWithFormat:@"*%@*", context]];
 }
 
+- (NSManagedObject *)objectForIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger numberOfSuggestionFields = [self numberOfSuggestionFields];
+    if (numberOfSuggestionFields % 2 == 0) {
+        return [self.coreDataFetchController objectAtIndexPath:indexPath];
+    } else {
+        NSManagedObject *object;
+        
+        @try {
+            NSInteger row = (indexPath.row - floorf(numberOfSuggestionFields / 2.f)) * 2;
+            if (row < 0) {
+                row = -row - 1;
+            }
+            NSIndexPath *recalculatedIndexPath = [NSIndexPath indexPathForRow:row inSection:indexPath.section];
+            object = [self.coreDataFetchController objectAtIndexPath:recalculatedIndexPath];
+        }
+        @catch (NSException *exception) {
+            object = nil;
+        }
+        
+        return object;
+    }
+}
+
 #pragma mark - Bridged Getters
 
 - (NSInteger)numberOfSuggestionFields
@@ -95,7 +119,7 @@
 - (NSString *)cellIdentifierForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString * const cellIdentifier = @"kTOMSSuggestionBarCell";
-    return cellIdentifier;
+    return [cellIdentifier stringByAppendingFormat:@"_%d", indexPath.row];
 }
 
 - (NSPredicate *)defaultPredicate
@@ -115,17 +139,18 @@
     NSString *text;
     
     @try {
-        NSManagedObject *object = [self.coreDataFetchController objectAtIndexPath:indexPath];
+        NSManagedObject *object = [self objectForIndexPath:indexPath];
         if (object) {
             text = [object valueForKeyPath:[self attributeName]];
         } else {
-            @throw [NSException exceptionWithName:@"TOMSObjectNotFoundException" reason:@"Did not fetch enaugh data to fill all of the cells." userInfo:nil];
+            @throw [NSException exceptionWithName:@"TOMSObjectNotFoundException"
+                                           reason:@"Did not fetch enaugh data to fill all of the cells."
+                                         userInfo:nil];
         }
     }
     @catch (NSException *exception) {
         text = @"";
     }
-    
     
     suggestionBarCell.textLabel.text = text;
 }
