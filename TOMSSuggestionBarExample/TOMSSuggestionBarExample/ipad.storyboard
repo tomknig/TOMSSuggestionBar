@@ -1,9 +1,115 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="zIP-v3-Mvq">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Base View Controller - Base-->
+        <scene sceneID="eW4-VA-ReT">
+            <objects>
+                <viewController id="gwU-hj-TGx" customClass="BaseViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mbf-nK-yCC"/>
+                        <viewControllerLayoutGuide type="bottom" id="2uF-YQ-3Ek"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k8d-Oj-ZWx">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hrq-9t-w5q">
+                                <rect key="frame" x="20" y="111" width="728" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="[Base] Type something:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnK-kl-Zl0">
+                                <rect key="frame" x="20" y="82" width="728" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hrq-9t-w5q" secondAttribute="trailing" constant="20" id="7x9-bB-OEY"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hrq-9t-w5q" secondAttribute="trailing" constant="20" id="8ho-KS-cSd"/>
+                            <constraint firstAttribute="trailing" secondItem="PnK-kl-Zl0" secondAttribute="trailing" constant="20" id="J6G-oD-HXf"/>
+                            <constraint firstItem="hrq-9t-w5q" firstAttribute="leading" secondItem="k8d-Oj-ZWx" secondAttribute="leading" constant="20" id="Rto-1G-m5R"/>
+                            <constraint firstItem="hrq-9t-w5q" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="k8d-Oj-ZWx" secondAttribute="leading" constant="20" id="UbH-Ud-flL"/>
+                            <constraint firstItem="PnK-kl-Zl0" firstAttribute="leading" secondItem="k8d-Oj-ZWx" secondAttribute="leading" constant="20" id="vDN-Cf-ZdT"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Base" id="P6z-pu-OoY"/>
+                    <connections>
+                        <outlet property="textField" destination="hrq-9t-w5q" id="2za-3b-xun"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qoh-wx-C7H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1282" y="-1060"/>
+        </scene>
+        <!--Custom View Controller - Custom-->
+        <scene sceneID="Q7K-g0-DvW">
+            <objects>
+                <viewController id="nne-87-7Zu" customClass="CustomViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WdD-WK-Poj"/>
+                        <viewControllerLayoutGuide type="bottom" id="DSD-lT-ybJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2mk-Q2-e5Z">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mgm-w4-Gp8">
+                                <rect key="frame" x="20" y="111" width="728" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="[Custom] Type something:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tns-yp-ddo">
+                                <rect key="frame" x="20" y="82" width="728" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mgm-w4-Gp8" secondAttribute="trailing" constant="20" id="7xh-MW-iSr"/>
+                            <constraint firstItem="mgm-w4-Gp8" firstAttribute="leading" secondItem="2mk-Q2-e5Z" secondAttribute="leading" constant="20" id="Txi-Cb-1LD"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mgm-w4-Gp8" secondAttribute="trailing" constant="20" id="hPt-Zt-WiI"/>
+                            <constraint firstItem="Tns-yp-ddo" firstAttribute="leading" secondItem="2mk-Q2-e5Z" secondAttribute="leading" constant="20" id="r6C-9y-VN7"/>
+                            <constraint firstItem="mgm-w4-Gp8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2mk-Q2-e5Z" secondAttribute="leading" constant="20" id="sra-it-U45"/>
+                            <constraint firstAttribute="trailing" secondItem="Tns-yp-ddo" secondAttribute="trailing" constant="20" id="zno-9Y-fPL"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Custom" id="QFF-7R-4FY"/>
+                    <connections>
+                        <outlet property="textField" destination="mgm-w4-Gp8" id="Pqr-eI-uTD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K1X-sQ-sIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1282" y="79"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="fyr-lN-NKB">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="zIP-v3-Mvq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="C50-Th-c61">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="gwU-hj-TGx" kind="relationship" relationship="viewControllers" id="mhE-Dg-9qd"/>
+                        <segue destination="nne-87-7Zu" kind="relationship" relationship="viewControllers" id="mUf-il-i9n"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L2r-Wu-4Nl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="308" y="-491"/>
+        </scene>
+    </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
