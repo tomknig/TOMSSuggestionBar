@@ -1,5 +1,5 @@
 # TOMSCoreDataManager
-TOMSCoreDataManager is an approach to simplify persistency with CoreData and an optional REST backend.
+Comfortable persistency with CoreData integrated views plus support for an optional RESTful backend.
 TOMSCoreDataManager provides handy superclasses for your custom TableViewController or CollectionViewController implementation as well as an useful ManagedObject extension.
 
 ## Installation with CocoaPods

@@ -24,7 +24,7 @@
 }
 
 + (instancetype)toms_objectForUniqueIdentifier:(NSString *)uniqueIdentifier
-                                inContext:(NSManagedObjectContext *)context
+                                     inContext:(NSManagedObjectContext *)context
 {
     return [self toms_objectForAttribute:[self toms_uniqueIdentifier]
                            matchingValue:uniqueIdentifier
@@ -40,8 +40,8 @@
 }
 
 + (instancetype)toms_newObjectFromDictionary:(NSDictionary *)dictionary
-                              inContext:(NSManagedObjectContext *)context
-                        autoSaveContext:(BOOL)autoSave;
+                                   inContext:(NSManagedObjectContext *)context
+                             autoSaveContext:(BOOL)autoSave;
 {
     if (!dictionary) {
         return nil;
@@ -88,7 +88,9 @@
                                                 inObjectOfClass:[self class]];
         
         if ([[mutableInfo[key] class] isSubclassOfClass:propertyClass]) {
-            [object setValue:mutableInfo[key] forKey:key];
+            if (mutableInfo[key]) {
+                [object setValue:mutableInfo[key] forKey:key];
+            }
         } else {
             @throw [NSException exceptionWithName:@"TOMSPropertyTypeMismatchException"
                                            reason:[NSString stringWithFormat:@"Could not insert value `%@` to property of class `%@`. Its type does not match class in Dictionary `%@`.", key, propertyClass, [mutableInfo[key] class]]
@@ -99,9 +101,9 @@
     if (autoSave) {
         [TOMSCoreDataManager saveContext:context];
     }
-
+    
     return object;
-
+    
 }
 
 + (NSArray *)toms_objectsForPredicate:(NSPredicate *)predicate
@@ -126,7 +128,7 @@
 }
 
 + (NSArray *)toms_objectsForPredicate:(NSPredicate *)predicate
-                       inContext:(NSManagedObjectContext *)context
+                            inContext:(NSManagedObjectContext *)context
 {
     NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"objectId" ascending:YES]];
     return [self toms_objectsForPredicate:predicate
@@ -151,7 +153,7 @@
     return nil;
 }
 
-- (Class)toms_classOfPropertyNamed:(NSString*)propertyName
+- (Class)toms_classOfPropertyNamed:(NSString *)propertyName
                    inObjectOfClass:(Class)class
 {
     Class propertyClass = nil;
@@ -164,8 +166,13 @@
         // xcdoc://ios//library/prerelease/ios/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtPropertyIntrospection.html
         NSString *encodeType = splitPropertyAttributes[0];
         NSArray *splitEncodeType = [encodeType componentsSeparatedByString:@"\""];
-        NSString *className = splitEncodeType[1];
-        propertyClass = NSClassFromString(className);
+        
+        if ([splitEncodeType count] > 1) {
+            NSString *className = splitEncodeType[1];
+            propertyClass = NSClassFromString(className);
+        } else {
+            propertyClass = [NSObject class];
+        }
     }
     
     return propertyClass;

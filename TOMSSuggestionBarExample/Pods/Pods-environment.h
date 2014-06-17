@@ -28,7 +28,7 @@
 #define COCOAPODS_POD_AVAILABLE_TOMSCoreDataManager
 #define COCOAPODS_VERSION_MAJOR_TOMSCoreDataManager 0
 #define COCOAPODS_VERSION_MINOR_TOMSCoreDataManager 1
-#define COCOAPODS_VERSION_PATCH_TOMSCoreDataManager 0
+#define COCOAPODS_VERSION_PATCH_TOMSCoreDataManager 1
 
 // TOMSMorphingLabel
 #define COCOAPODS_POD_AVAILABLE_TOMSMorphingLabel
