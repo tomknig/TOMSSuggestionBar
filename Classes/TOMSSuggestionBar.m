@@ -45,6 +45,7 @@
 
 - (void)designatedInitialization
 {
+    self.suggestionBarView.backgroundColor = self.backgroundColor;
     self.suggestionBarView.suggestionBarController.suggestionBar = self;
     self.relevantContextRange = NSMakeRange(0, 0);
 }
