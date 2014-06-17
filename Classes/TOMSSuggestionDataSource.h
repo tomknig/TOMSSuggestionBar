@@ -22,6 +22,7 @@
            predicateForContext:(NSString *)context
                  attributeName:(NSString *)attributeName;
 
-- (NSArray *)sortDescriptorsInSuggestionBar:(TOMSSuggestionBar *)suggestionBar;
+- (NSArray *)suggestionBar:(TOMSSuggestionBar *)suggestionBar
+sortDescriptorsForAttributeName:(NSString *)attributeName;
 
 @end

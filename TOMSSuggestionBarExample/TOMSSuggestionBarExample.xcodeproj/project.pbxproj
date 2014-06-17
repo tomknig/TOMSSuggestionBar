@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		32CBEE52E9ED42D2916B3F77 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B18CAB7EAB8485B8BF395E5 /* libPods.a */; };
 		A6544B521950D213006B986F /* iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6544B511950D213006B986F /* iphone.storyboard */; };
+		A6544B571950EEBD006B986F /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6544B561950EEBD006B986F /* CustomViewController.m */; };
 		A6C35F07194CFB990089EFB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C35F06194CFB990089EFB0 /* main.m */; };
 		A6C35F0A194CFB990089EFB0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C35F09194CFB990089EFB0 /* AppDelegate.m */; };
-		A6C35F0D194CFB990089EFB0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C35F0C194CFB990089EFB0 /* ViewController.m */; };
+		A6C35F0D194CFB990089EFB0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C35F0C194CFB990089EFB0 /* BaseViewController.m */; };
 		A6C35F12194CFB990089EFB0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6C35F11194CFB990089EFB0 /* Images.xcassets */; };
 		A6C35F1E194CFB990089EFB0 /* TOMSSuggestionBarExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C35F1D194CFB990089EFB0 /* TOMSSuggestionBarExampleTests.m */; };
 		A6C35F38194D16770089EFB0 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6C35F36194D16770089EFB0 /* Model.xcdatamodeld */; };
@@ -31,13 +32,15 @@
 /* Begin PBXFileReference section */
 		7B18CAB7EAB8485B8BF395E5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6544B511950D213006B986F /* iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iphone.storyboard; sourceTree = "<group>"; };
+		A6544B551950EEBD006B986F /* CustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomViewController.h; sourceTree = "<group>"; };
+		A6544B561950EEBD006B986F /* CustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewController.m; sourceTree = "<group>"; };
 		A6C35F01194CFB990089EFB0 /* TOMSSuggestionBarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOMSSuggestionBarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C35F05194CFB990089EFB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6C35F06194CFB990089EFB0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A6C35F08194CFB990089EFB0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A6C35F09194CFB990089EFB0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A6C35F0B194CFB990089EFB0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A6C35F0C194CFB990089EFB0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A6C35F0B194CFB990089EFB0 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		A6C35F0C194CFB990089EFB0 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		A6C35F11194CFB990089EFB0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A6C35F17194CFB990089EFB0 /* TOMSSuggestionBarExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TOMSSuggestionBarExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C35F1C194CFB990089EFB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,10 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				A6C35F35194D166C0089EFB0 /* Model */,
-				A6C35F08194CFB990089EFB0 /* AppDelegate.h */,
-				A6C35F09194CFB990089EFB0 /* AppDelegate.m */,
-				A6C35F0B194CFB990089EFB0 /* ViewController.h */,
-				A6C35F0C194CFB990089EFB0 /* ViewController.m */,
+				A6C35F0B194CFB990089EFB0 /* BaseViewController.h */,
+				A6C35F0C194CFB990089EFB0 /* BaseViewController.m */,
+				A6544B551950EEBD006B986F /* CustomViewController.h */,
+				A6544B561950EEBD006B986F /* CustomViewController.m */,
 				A6544B511950D213006B986F /* iphone.storyboard */,
 				A6C35F11194CFB990089EFB0 /* Images.xcassets */,
 				A6C35F04194CFB990089EFB0 /* Supporting Files */,
@@ -113,6 +116,8 @@
 		A6C35F04194CFB990089EFB0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A6C35F08194CFB990089EFB0 /* AppDelegate.h */,
+				A6C35F09194CFB990089EFB0 /* AppDelegate.m */,
 				A6C35F05194CFB990089EFB0 /* Info.plist */,
 				A6C35F06194CFB990089EFB0 /* main.m */,
 			);
@@ -281,7 +286,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6C35F0D194CFB990089EFB0 /* ViewController.m in Sources */,
+				A6C35F0D194CFB990089EFB0 /* BaseViewController.m in Sources */,
+				A6544B571950EEBD006B986F /* CustomViewController.m in Sources */,
 				A6C35F0A194CFB990089EFB0 /* AppDelegate.m in Sources */,
 				A6C35F3B194D169D0089EFB0 /* Person.m in Sources */,
 				A6C35F07194CFB990089EFB0 /* main.m in Sources */,

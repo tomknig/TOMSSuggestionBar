@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TOMSSuggestionDataSource.h"
 #import "TOMSSuggestionDelegate.h"
+#import "UIControl+TOMSSuggestionBar.h"
 
 @interface TOMSSuggestionBar : NSObject
 
@@ -19,6 +20,9 @@ toSuggestionsForAttributeNamed:(NSString *)attributeName
                  ofEntityNamed:(NSString *)entityName
                   inModelNamed:(NSString *)modelName;
 
+- (NSRange)rangeOfRelevantContext;
+
+@property (nonatomic, weak) UIControl<UITextInput> *textInputView;
 @property (nonatomic, weak) id<TOMSSuggestionDataSource> dataSource;
 @property (nonatomic, weak) id<TOMSSuggestionDelegate> delegate;
 

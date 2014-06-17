@@ -65,13 +65,27 @@
 
 - (void)didSelectSuggestionAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.suggestionBar.delegate && [self.suggestionBar.delegate respondsToSelector:@selector(suggestionBar:didSelectSuggestion:associatedObject:)]) {
-        NSManagedObject *object = [self objectForIndexPath:indexPath];
-        if (object) {
-            NSString *suggestion = [object valueForKeyPath:[self attributeName]];
+    NSManagedObject *object = [self objectForIndexPath:indexPath];
+    if (object) {
+        NSString *suggestion = [object valueForKeyPath:[self attributeName]];
+        
+        if (self.suggestionBar.delegate && [self.suggestionBar.delegate respondsToSelector:@selector(suggestionBar:didSelectSuggestion:associatedObject:)]) {
             [self.suggestionBar.delegate suggestionBar:self.suggestionBar
                                    didSelectSuggestion:suggestion
                                       associatedObject:object];
+        } else {
+            NSString *replacement = [suggestion stringByAppendingString:@" "];
+            NSRange contextRange = [self.suggestionBar rangeOfRelevantContext];
+            UITextPosition *beginning = self.suggestionBar.textInputView.beginningOfDocument;
+            UITextPosition *start = [self.suggestionBar.textInputView positionFromPosition:beginning
+                                                                                    offset:contextRange.location];
+            UITextPosition *end = [self.suggestionBar.textInputView positionFromPosition:start
+                                                                                  offset:contextRange.length];
+            UITextRange *replacementRange = [self.suggestionBar.textInputView textRangeFromPosition:start
+                                                                                         toPosition:end];
+            
+            [self.suggestionBar.textInputView replaceRange:replacementRange
+                                                  withText:replacement];
         }
     }
 }
@@ -139,7 +153,7 @@
 - (NSString *)cellIdentifierForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString * const cellIdentifier = @"kTOMSSuggestionBarCell";
-    return [cellIdentifier stringByAppendingFormat:@"_%d", indexPath.row];
+    return [cellIdentifier stringByAppendingFormat:@"_%lu", indexPath.row];
 }
 
 - (NSPredicate *)defaultPredicate
@@ -155,8 +169,9 @@
 
 - (NSArray *)defaultSortDescriptors
 {
-    if (self.suggestionBar.dataSource && [self.suggestionBar.dataSource respondsToSelector:@selector(sortDescriptorsInSuggestionBar:)]) {
-        return [self.suggestionBar.dataSource sortDescriptorsInSuggestionBar:self.suggestionBar];
+    if (self.suggestionBar.dataSource && [self.suggestionBar.dataSource respondsToSelector:@selector(suggestionBar:sortDescriptorsForAttributeName:)]) {
+        return [self.suggestionBar.dataSource suggestionBar:self.suggestionBar
+                            sortDescriptorsForAttributeName:[self attributeName]];
     } else {
         return @[[NSSortDescriptor sortDescriptorWithKey:[self attributeName] ascending:YES]];
     }

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="60j-Rv-Udr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2ta-VA-K58">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Base View Controller - Simple-->
         <scene sceneID="KqM-ct-LYA">
             <objects>
-                <viewController id="60j-Rv-Udr" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="60j-Rv-Udr" customClass="BaseViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gSu-Pb-LkV"/>
                         <viewControllerLayoutGuide type="bottom" id="WWc-xE-jjH"/>
@@ -17,12 +17,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l5i-A1-vAV">
-                                <rect key="frame" x="20" y="48" width="280" height="30"/>
+                                <rect key="frame" x="20" y="110" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Type something:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXI-r2-EbE">
-                                <rect key="frame" x="20" y="20" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="[Simple] Type something:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXI-r2-EbE">
+                                <rect key="frame" x="20" y="82" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -36,13 +36,74 @@
                             <constraint firstItem="WXI-r2-EbE" firstAttribute="leading" secondItem="yFd-nR-yEa" secondAttribute="leading" constant="20" id="wYv-NI-Wg1"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Simple" id="MAG-Dt-1GO"/>
                     <connections>
                         <outlet property="textField" destination="l5i-A1-vAV" id="MTT-Nn-cjG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Be-jr-d8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="266" y="-54"/>
+            <point key="canvasLocation" x="818" y="264"/>
+        </scene>
+        <!--Custom View Controller - Customized-->
+        <scene sceneID="3lR-Jv-TPP">
+            <objects>
+                <viewController id="1lZ-A3-NS5" customClass="CustomViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cul-Io-Q7U"/>
+                        <viewControllerLayoutGuide type="bottom" id="uAf-iA-pfe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="24Y-P9-OdA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ofc-A7-FxO">
+                                <rect key="frame" x="20" y="110" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="[Customized] Type something:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHs-Ax-3bw">
+                                <rect key="frame" x="20" y="82" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HHs-Ax-3bw" firstAttribute="leading" secondItem="24Y-P9-OdA" secondAttribute="leading" constant="20" id="dBh-VV-y54"/>
+                            <constraint firstAttribute="trailing" secondItem="Ofc-A7-FxO" secondAttribute="trailing" constant="20" id="mDQ-zM-vmj"/>
+                            <constraint firstAttribute="trailing" secondItem="HHs-Ax-3bw" secondAttribute="trailing" constant="20" id="nqF-5N-iMa"/>
+                            <constraint firstItem="Ofc-A7-FxO" firstAttribute="leading" secondItem="24Y-P9-OdA" secondAttribute="leading" constant="20" id="tJn-to-0Eo"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Customized" id="cpT-QU-HJF"/>
+                    <connections>
+                        <outlet property="textField" destination="Ofc-A7-FxO" id="kFn-zV-seA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LwY-mj-67u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="818" y="-390"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="8hm-qA-za9">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2ta-VA-K58" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="sgh-74-e4L">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="60j-Rv-Udr" kind="relationship" relationship="viewControllers" id="E8E-Ge-dTu"/>
+                        <segue destination="1lZ-A3-NS5" kind="relationship" relationship="viewControllers" id="p9Q-xa-WJE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gTw-9a-lIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="277" y="-88"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

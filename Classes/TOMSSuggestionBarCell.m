@@ -36,7 +36,10 @@
     
     [self addSubview:self.textLabel];
     
-//    self
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                           action:@selector(touchedUpInside)];
+    tapGestureRecognizer.numberOfTapsRequired = 1;
+    [self addGestureRecognizer:tapGestureRecognizer];
 }
 
 #pragma mark - Delegation

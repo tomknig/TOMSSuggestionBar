@@ -12,7 +12,7 @@
 
 @interface TOMSSuggestionBar ()
 @property (nonatomic, strong) TOMSSuggestionBarView *suggestionBarView;
-@property (nonatomic, weak) UIControl<UITextInput> *textInputView;
+@property (nonatomic, assign) NSRange relevantContextRange;
 @end
 
 @implementation TOMSSuggestionBar
@@ -44,6 +44,7 @@
 - (void)designatedInitialization
 {
     self.suggestionBarView.suggestionBarController.suggestionBar = self;
+    self.relevantContextRange = NSMakeRange(0, 0);
 }
 
 #pragma mark - Suggestion setup
@@ -54,6 +55,9 @@ toSuggestionsForAttributeNamed:(NSString *)attributeName
                   inModelNamed:(NSString *)modelName
 {
     if ([textInputView respondsToSelector:@selector(setInputAccessoryView:)]) {
+        textInputView.autocorrectionType = UITextAutocorrectionTypeNo;
+        textInputView.toms_suggestionBar = self;
+        
         self.suggestionBarView.attributeName = attributeName;
         self.suggestionBarView.entityName = entityName;
         self.suggestionBarView.modelName = modelName;
@@ -95,6 +99,7 @@ toSuggestionsForAttributeNamed:(NSString *)attributeName
                                  relevantContextForInput:inputText
                                            caretLocation:[textInputView offsetFromPosition:textInputView.beginningOfDocument
                                                                                 toPosition:caretPosition]];
+        self.relevantContextRange = [inputText rangeOfString:relevantContext];
     } else {
         UITextRange *inputRange = [textInputView textRangeFromPosition:textInputView.beginningOfDocument
                                                             toPosition:caretPosition];
@@ -105,12 +110,20 @@ toSuggestionsForAttributeNamed:(NSString *)attributeName
         
         if (lastWordRange.location == NSNotFound) {
             relevantContext = inputText;
+            self.relevantContextRange = NSMakeRange(0, inputText.length);
         } else {
-            relevantContext = [inputText substringFromIndex:lastWordRange.location + 1];
+            NSInteger location = lastWordRange.location + 1;
+            relevantContext = [inputText substringFromIndex:location];
+            self.relevantContextRange = NSMakeRange(location, inputText.length - location);
         }
     }
     
     [self.suggestionBarView.suggestionBarController suggestableTextDidChange:relevantContext];
+}
+
+- (NSRange)rangeOfRelevantContext
+{
+    return self.relevantContextRange;
 }
 
 #pragma mark - Passing setters
