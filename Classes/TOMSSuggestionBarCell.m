@@ -25,11 +25,7 @@
 
 - (void)designatedInitialization
 {
-    self.backgroundColor = [TOMSSuggestionBar defaultTileColor];
-    self.tintColor = [TOMSSuggestionBar defaultTextColor];
-    
     self.textLabel = [[TOMSMorphingLabel alloc] initWithFrame:self.bounds];
-    self.textLabel.font = [TOMSSuggestionBar defaultFont];
     self.textLabel.textColor = self.tintColor;
     self.textLabel.textAlignment = NSTextAlignmentCenter;
     self.textLabel.userInteractionEnabled = NO;
@@ -40,6 +36,16 @@
                                                                                            action:@selector(touchedUpInside)];
     tapGestureRecognizer.numberOfTapsRequired = 1;
     [self addGestureRecognizer:tapGestureRecognizer];
+}
+
+- (void)setSuggestionBarController:(TOMSSuggestionBarController *)suggestionBarController
+{
+    _suggestionBarController = suggestionBarController;
+    
+    self.backgroundColor = self.suggestionBarController.suggestionBar.tileColor;
+    self.tintColor = self.suggestionBarController.suggestionBar.textColor;
+    self.textLabel.textColor = self.suggestionBarController.suggestionBar.textColor;
+    self.textLabel.font = self.suggestionBarController.suggestionBar.font;
 }
 
 #pragma mark - Delegation

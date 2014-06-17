@@ -31,9 +31,4 @@ toSuggestionsForAttributeNamed:(NSString *)attributeName
 @property (nonatomic, strong) UIColor *textColor;
 @property (nonatomic, strong) UIFont *font;
 
-+ (UIColor *)defaultBackgroundColor;
-+ (UIColor *)defaultTileColor;
-+ (UIColor *)defaultTextColor;
-+ (UIFont *)defaultFont;
-
 @end

@@ -16,6 +16,7 @@
 @end
 
 @implementation TOMSSuggestionBar
+@synthesize backgroundColor = _backgroundColor;
 
 #pragma mark - Initialization
 
@@ -127,57 +128,51 @@ toSuggestionsForAttributeNamed:(NSString *)attributeName
     return self.relevantContextRange;
 }
 
-#pragma mark - Passing setters
+#pragma mark - Bridget Setters
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor
 {
-    _backgroundColor = backgroundColor;
-    self.suggestionBarView.backgroundColor = backgroundColor;
-}
-
-- (void)setTileColor:(UIColor *)tileColor
-{
-    _tileColor = tileColor;
-    //TODO pass this value to all existing cells
-}
-
-- (void)setTextColor:(UIColor *)textColor
-{
-    _textColor = textColor;
-    //TODO pass this value to all existing cells
-}
-
-- (void)setFont:(UIFont *)font
-{
-    _font = font;
-    //TODO pass this value to all existing cells
+    _backgroundColor = backgroundColor;    
+    self.suggestionBarView.backgroundColor = self.backgroundColor;
 }
 
 #pragma mark - Default configuration
 
 + (CGRect)suggestionBarFrame
 {
-    return CGRectMake(0, 21, 320, 42);//TODO genrify
+    return CGRectMake(0, 21, 320, 42);//TODO generify
 }
 
-+ (UIColor *)defaultBackgroundColor
+- (UIColor *)backgroundColor
 {
-    return [UIColor colorWithRed:210.0/255.0 green:213.0/255.0 blue: 219.0/255.0 alpha:1];
+    if (!_backgroundColor) {
+        return [UIColor colorWithRed:210.0/255.0 green:213.0/255.0 blue: 219.0/255.0 alpha:1];
+    }
+    return _backgroundColor;
 }
 
-+ (UIColor *)defaultTileColor
+- (UIColor *)tileColor
 {
-    return [UIColor colorWithRed:174.0/255.0 green:179.0/255.0 blue: 190.0/255.0 alpha:1];
+    if (!_tileColor) {
+        return [UIColor colorWithRed:174.0/255.0 green:179.0/255.0 blue: 190.0/255.0 alpha:1];
+    }
+    return _tileColor;
 }
 
-+ (UIColor *)defaultTextColor
+- (UIColor *)textColor
 {
-    return [UIColor whiteColor];
+    if (!_textColor) {
+        return [UIColor whiteColor];
+    }
+    return _textColor;
 }
 
-+ (UIFont *)defaultFont
+- (UIFont *)font
 {
-    return [UIFont systemFontOfSize:16];
+    if (!_font) {
+        return [UIFont systemFontOfSize:16];
+    }
+    return _font;
 }
 
 @end

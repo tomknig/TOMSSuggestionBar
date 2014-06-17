@@ -27,7 +27,6 @@
         
         [self registerCellClasses];
         self.suggestionBarController = [[TOMSSuggestionBarController alloc] initWithSuggestionBarView:self];
-        self.backgroundColor = [TOMSSuggestionBar defaultBackgroundColor];
         self.delegate = self.suggestionBarController;
     }
     return self;
