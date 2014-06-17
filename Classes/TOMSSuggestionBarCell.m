@@ -8,6 +8,7 @@
 
 #import "TOMSSuggestionBarCell.h"
 #import "TOMSSuggestionBar.h"
+#import "TOMSSuggestionBarController.h"
 
 @implementation TOMSSuggestionBarCell
 
@@ -31,8 +32,18 @@
     self.textLabel.font = [TOMSSuggestionBar defaultFont];
     self.textLabel.textColor = self.tintColor;
     self.textLabel.textAlignment = NSTextAlignmentCenter;
+    self.textLabel.userInteractionEnabled = NO;
     
     [self addSubview:self.textLabel];
+    
+//    self
+}
+
+#pragma mark - Delegation
+
+- (void)touchedUpInside
+{
+    [self.suggestionBarController didSelectSuggestionAtIndexPath:self.indexPath];
 }
 
 @end

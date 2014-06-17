@@ -9,6 +9,7 @@
 #import "TOMSSuggestionBarController.h"
 #import "TOMSSuggestionBarView.h"
 #import "TOMSSuggestionBarCell.h"
+#import "TOMSSuggestionBar.h"
 
 @implementation TOMSSuggestionBarController
 
@@ -29,7 +30,13 @@
 
 - (void)suggestableTextDidChange:(NSString *)context
 {
-    self.coreDataFetchController.predicate = [NSPredicate predicateWithFormat:@"%K LIKE[cd] %@", [self attributeName], [NSString stringWithFormat:@"*%@*", context]];
+    if (self.suggestionBar.dataSource && [self.suggestionBar.dataSource respondsToSelector:@selector(suggestionBar:predicateForContext:attributeName:)]) {
+        self.coreDataFetchController.predicate = [self.suggestionBar.dataSource suggestionBar:self.suggestionBar
+                                                                          predicateForContext:context
+                                                                                attributeName:[self attributeName]];
+    } else {
+        self.coreDataFetchController.predicate = [NSPredicate predicateWithFormat:@"%K LIKE[cd] %@", [self attributeName], [NSString stringWithFormat:@"*%@*", context]];
+    }
 }
 
 - (NSManagedObject *)objectForIndexPath:(NSIndexPath *)indexPath
@@ -53,6 +60,19 @@
         }
         
         return object;
+    }
+}
+
+- (void)didSelectSuggestionAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.suggestionBar.delegate && [self.suggestionBar.delegate respondsToSelector:@selector(suggestionBar:didSelectSuggestion:associatedObject:)]) {
+        NSManagedObject *object = [self objectForIndexPath:indexPath];
+        if (object) {
+            NSString *suggestion = [object valueForKeyPath:[self attributeName]];
+            [self.suggestionBar.delegate suggestionBar:self.suggestionBar
+                                   didSelectSuggestion:suggestion
+                                      associatedObject:object];
+        }
     }
 }
 
@@ -124,20 +144,33 @@
 
 - (NSPredicate *)defaultPredicate
 {
-    return [NSPredicate predicateWithFormat:@"%@.length > 0", [self attributeName]];
+    if (self.suggestionBar.dataSource && [self.suggestionBar.dataSource respondsToSelector:@selector(suggestionBar:predicateForContext:attributeName:)]) {
+        return [self.suggestionBar.dataSource suggestionBar:self.suggestionBar
+                                        predicateForContext:@""
+                                              attributeName:[self attributeName]];
+    } else {
+        return [NSPredicate predicateWithFormat:@"%@.length > 0", [self attributeName]];
+    }
 }
 
 - (NSArray *)defaultSortDescriptors
 {
-    return @[[NSSortDescriptor sortDescriptorWithKey:[self attributeName] ascending:YES]];
+    if (self.suggestionBar.dataSource && [self.suggestionBar.dataSource respondsToSelector:@selector(sortDescriptorsInSuggestionBar:)]) {
+        return [self.suggestionBar.dataSource sortDescriptorsInSuggestionBar:self.suggestionBar];
+    } else {
+        return @[[NSSortDescriptor sortDescriptorWithKey:[self attributeName] ascending:YES]];
+    }
 }
 
 - (void)configureCell:(id)cell
          forIndexPath:(NSIndexPath *)indexPath
 {
     TOMSSuggestionBarCell *suggestionBarCell = (TOMSSuggestionBarCell *)cell;
-    NSString *text;
     
+    suggestionBarCell.indexPath = indexPath;
+    suggestionBarCell.suggestionBarController = self;
+    
+    NSString *text;
     @try {
         NSManagedObject *object = [self objectForIndexPath:indexPath];
         if (object) {

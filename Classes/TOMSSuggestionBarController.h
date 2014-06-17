@@ -9,11 +9,16 @@
 #import "TOMSCoreDataCollectionViewController.h"
 
 @class TOMSSuggestionBarView;
+@class TOMSSuggestionBar;
 
 @interface TOMSSuggestionBarController : TOMSCoreDataCollectionViewController
 
 - (instancetype)initWithSuggestionBarView:(TOMSSuggestionBarView *)suggestionBarView;
 
 - (void)suggestableTextDidChange:(NSString *)context;
+
+- (void)didSelectSuggestionAtIndexPath:(NSIndexPath *)indexPath;
+
+@property (nonatomic, weak) TOMSSuggestionBar *suggestionBar;
 
 @end

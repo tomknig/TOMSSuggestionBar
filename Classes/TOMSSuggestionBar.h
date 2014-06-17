@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TOMSSuggestionDataSource.h"
+#import "TOMSSuggestionDelegate.h"
 
 @interface TOMSSuggestionBar : NSObject
 
@@ -17,6 +18,9 @@
 toSuggestionsForAttributeNamed:(NSString *)attributeName
                  ofEntityNamed:(NSString *)entityName
                   inModelNamed:(NSString *)modelName;
+
+@property (nonatomic, weak) id<TOMSSuggestionDataSource> dataSource;
+@property (nonatomic, weak) id<TOMSSuggestionDelegate> delegate;
 
 @property (nonatomic, strong) UIColor *backgroundColor;
 @property (nonatomic, strong) UIColor *tileColor;

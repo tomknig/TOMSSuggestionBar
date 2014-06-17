@@ -43,7 +43,7 @@
 
 - (void)designatedInitialization
 {
-
+    self.suggestionBarView.suggestionBarController.suggestionBar = self;
 }
 
 #pragma mark - Suggestion setup
@@ -83,22 +83,34 @@ toSuggestionsForAttributeNamed:(NSString *)attributeName
 
 - (void)textChanged:(UIControl<UITextInput> *)textInputView
 {
-    UITextRange *wholeTextRange = [textInputView textRangeFromPosition:textInputView.beginningOfDocument
+    NSString *relevantContext;
+    UITextPosition *caretPosition = textInputView.selectedTextRange.start;
+
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(suggestionBar:relevantContextForInput:caretLocation:)]) {
+        UITextRange *inputRange = [textInputView textRangeFromPosition:textInputView.beginningOfDocument
                                                             toPosition:textInputView.endOfDocument];
-    NSString *wholeText = [textInputView textInRange:wholeTextRange];
-    
-    NSRange lastWordRange = [wholeText rangeOfString:@" "
-                                             options:NSBackwardsSearch];
-    
-    NSString *lastWord;
-    
-    if (lastWordRange.location == NSNotFound) {
-        lastWord = wholeText;
+        NSString *inputText = [textInputView textInRange:inputRange];
+        
+        relevantContext = [self.dataSource suggestionBar:self
+                                 relevantContextForInput:inputText
+                                           caretLocation:[textInputView offsetFromPosition:textInputView.beginningOfDocument
+                                                                                toPosition:caretPosition]];
     } else {
-        lastWord = [wholeText substringFromIndex:lastWordRange.location + 1];
+        UITextRange *inputRange = [textInputView textRangeFromPosition:textInputView.beginningOfDocument
+                                                            toPosition:caretPosition];
+        
+        NSString *inputText = [textInputView textInRange:inputRange];
+        NSRange lastWordRange = [inputText rangeOfString:@" "
+                                                 options:NSBackwardsSearch];
+        
+        if (lastWordRange.location == NSNotFound) {
+            relevantContext = inputText;
+        } else {
+            relevantContext = [inputText substringFromIndex:lastWordRange.location + 1];
+        }
     }
     
-    [self.suggestionBarView.suggestionBarController suggestableTextDidChange:lastWord];
+    [self.suggestionBarView.suggestionBarController suggestableTextDidChange:relevantContext];
 }
 
 #pragma mark - Passing setters
