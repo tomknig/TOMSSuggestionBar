@@ -34,6 +34,7 @@
 {
     self = [super init];
     if (self) {
+        numberOfSuggestionFields = MAX(1, numberOfSuggestionFields);
         self.suggestionBarView = [[TOMSSuggestionBarView alloc] initWithFrame:[TOMSSuggestionBar suggestionBarFrame]
                                                      numberOfSuggestionFields:numberOfSuggestionFields];
         [self designatedInitialization];
