@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32CBEE52E9ED42D2916B3F77 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B18CAB7EAB8485B8BF395E5 /* libPods.a */; };
+		A646EC501950FD6C00AA2C7B /* ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A646EC4F1950FD6C00AA2C7B /* ipad.storyboard */; };
 		A6544B521950D213006B986F /* iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6544B511950D213006B986F /* iphone.storyboard */; };
 		A6544B571950EEBD006B986F /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6544B561950EEBD006B986F /* CustomViewController.m */; };
 		A6C35F07194CFB990089EFB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C35F06194CFB990089EFB0 /* main.m */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		7B18CAB7EAB8485B8BF395E5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A646EC4F1950FD6C00AA2C7B /* ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ipad.storyboard; sourceTree = "<group>"; };
 		A6544B511950D213006B986F /* iphone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iphone.storyboard; sourceTree = "<group>"; };
 		A6544B551950EEBD006B986F /* CustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomViewController.h; sourceTree = "<group>"; };
 		A6544B561950EEBD006B986F /* CustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewController.m; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				A6544B551950EEBD006B986F /* CustomViewController.h */,
 				A6544B561950EEBD006B986F /* CustomViewController.m */,
 				A6544B511950D213006B986F /* iphone.storyboard */,
+				A646EC4F1950FD6C00AA2C7B /* ipad.storyboard */,
 				A6C35F11194CFB990089EFB0 /* Images.xcassets */,
 				A6C35F04194CFB990089EFB0 /* Supporting Files */,
 			);
@@ -234,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A646EC501950FD6C00AA2C7B /* ipad.storyboard in Resources */,
 				A6544B521950D213006B986F /* iphone.storyboard in Resources */,
 				A6C35F12194CFB990089EFB0 /* Images.xcassets in Resources */,
 			);
@@ -398,10 +402,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TOMSSuggestionBarExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -413,10 +417,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TOMSSuggestionBarExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
