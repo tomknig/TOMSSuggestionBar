@@ -141,7 +141,11 @@ toSuggestionsForAttributeNamed:(NSString *)attributeName
 
 + (CGRect)suggestionBarFrame
 {
-    return CGRectMake(0, 21, 320, 42);//TODO generify
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        return CGRectMake(0, 0, 320, 58);
+    } else {
+        return CGRectMake(0, 0, 320, 42);
+    }
 }
 
 - (UIColor *)backgroundColor
