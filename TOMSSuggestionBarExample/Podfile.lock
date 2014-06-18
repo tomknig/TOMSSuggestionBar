@@ -52,7 +52,7 @@ SPEC CHECKSUMS:
   InflectorKit: bb1f5c9feb01d17450b8bcdeb7ab1ef1832b2247
   TOMSCoreDataManager: 10bd44c0d7a0981172f75b9fdb4eead943a541c6
   TOMSMorphingLabel: aab1b4efa08f189f6c89dcb39a1a5ba1c98a784e
-  TOMSSuggestionBar: 8ba3abea870aab5bb22e9d7deb0453bd5e19629b
+  TOMSSuggestionBar: 41fc426ce070ec9b3c723091857774ea87934162
   TransformerKit: be60349177a82a0747c7fb7897c1367754d295d8
 
 COCOAPODS: 0.33.1
