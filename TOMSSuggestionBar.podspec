@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "TOMSSuggestionBar"
-  s.version          = "0.1.0"
-  s.summary          = "Smoothly animated suggestions for text inputs with super easy CoreData hook."
+  s.version          = "0.1.1"
+  s.summary          = "A keyboard accessory that presents suggestions. Suggestions are displayed as morphing labels and fetched from a custom database."
   s.homepage         = "https://github.com/TomKnig/TOMSSuggestionBar"
   s.license          = 'MIT'
   s.author           = { "TomKnig" => "hi@tomknig.de" }

@@ -1,11 +1,11 @@
 # TOMSSuggestionBar
-Smoothly animated suggestions for text inputs with super easy CoreData hook.
-The main approach of this project is to make ![Apples keyboard suggestion bar](http://www.apple.com/ios/ios8/quicktype/) accessible for developers.
-With TOMSSuggestionBar you can easily mimic its appearance and behavior but provide your custom datasource.
+A keyboard accessory that presents suggestions. Suggestions are displayed as morphing labels and fetched from a custom database.
+
+The main approach of this project is to make a control that works like Apples keyboard suggestion bar [(as seen in iOS 8 announcement)](http://www.apple.com/ios/ios8/quicktype/) with custom data.
 
 ## Demo
 
-![Screen1](demo.gif)
+![Screen](demo.gif)
 
 ## Installation with CocoaPods
 
