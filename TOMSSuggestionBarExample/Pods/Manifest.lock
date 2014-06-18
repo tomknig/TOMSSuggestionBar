@@ -34,15 +34,11 @@ PODS:
     - TransformerKit/Core
 
 DEPENDENCIES:
-  - TOMSCoreDataManager (from `https://github.com/TomKnig/TOMSCoreDataManager.git`)
-  - TOMSMorphingLabel (from `../../TOMSMorphingLabel`)
+  - TOMSCoreDataManager
+  - TOMSMorphingLabel
   - TOMSSuggestionBar (from `../`)
 
 EXTERNAL SOURCES:
-  TOMSCoreDataManager:
-    :git: https://github.com/TomKnig/TOMSCoreDataManager.git
-  TOMSMorphingLabel:
-    :path: ../../TOMSMorphingLabel
   TOMSSuggestionBar:
     :path: ../
 
@@ -50,8 +46,8 @@ SPEC CHECKSUMS:
   AFIncrementalStore: 70ca00126363d691a2569c831eb2b016f984643b
   AFNetworking: 80c4e0652b08eb34e25b9c0ff3c82556fe5967b4
   InflectorKit: bb1f5c9feb01d17450b8bcdeb7ab1ef1832b2247
-  TOMSCoreDataManager: 10bd44c0d7a0981172f75b9fdb4eead943a541c6
-  TOMSMorphingLabel: aab1b4efa08f189f6c89dcb39a1a5ba1c98a784e
+  TOMSCoreDataManager: d2e6b2fb6c72692febb77c681cafe8c949c58308
+  TOMSMorphingLabel: 6b573950bbf8a898cdf85f76fe2e2379b11e3c35
   TOMSSuggestionBar: 41fc426ce070ec9b3c723091857774ea87934162
   TransformerKit: be60349177a82a0747c7fb7897c1367754d295d8
 

@@ -1,1 +1,1 @@
-../../../../../TOMSMorphingLabel/Classes/NSString+Morphing.h
+../../TOMSMorphingLabel/Classes/NSString+Morphing.h

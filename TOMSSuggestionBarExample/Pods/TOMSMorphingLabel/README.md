@@ -1,0 +1,66 @@
+# TOMSMorphingLabel
+Configurable morphing transitions between text values of a label.
+Triggering the animation is as easy as setting the labels `text` property.
+
+## Demo
+
+![Screen1](demo.gif)
+
+## Installation with CocoaPods
+
+TOMSMorphingLabel is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+#### Podfile
+
+```ruby
+platform :ios, '7.0'
+pod "TOMSMorphingLabel", "~> 0.1.0"
+```
+
+## Usage
+
+Instantiate TOMSMorphingLabel as you would do with an UILabel results in a fully working thus morphing label.
+
+```objective-c
+TOMSMorphingLabel *label = [[TOMSMorphingLabel alloc] initWithFrame:CGRectMake(0, 42, self.view.frame.size.width, 42)];
+[self.view addSubview:label];
+```
+
+Setting - and particularly changing - the labels text property will automatically morph the labels previous text to the new value.
+
+```objective-c
+label.text = @"Swift";
+```
+
+Note that the label will execute only one morph transition at a time. If the text value of the label changes during a transition - even if it changes multiple times - the label will invoke a transition to the youngest text value that was set.
+
+## Customization
+
+TOMSMorphingLabel provides the possibility to configure the morphing transitions look and feel.
+The configureable properties are defined as follows:
+
+<table>
+  <caption>configureable properties</caption>
+  <tr>
+    <td><tt>animationDuration: CGFloat</tt></td>
+    <td>Time that elapses between the setting of a new text value and the end of the morphing transition. Default: 0.37</td>
+  </tr>
+  <tr>
+    <td><tt>characterAnimationOffset: CGFloat</tt></td>
+    <td>Spatial propagation speed of the character shrink and alpha effect.. Default: 0.25</td>
+  </tr>
+  <tr>
+    <td><tt>characterShrinkFactor: CGFloat</tt></td>
+    <td>Factor that the scale of a completely disappeared character is divided by. Default: 4</td>
+  </tr>
+</table>
+
+
+## Author
+
+[Tom König](http://github.com/TomKnig) [@TomKnig](https://twitter.com/TomKnig)
+
+## License
+
+TOMSMorphingLabel is available under the MIT license. See the LICENSE file for more info.

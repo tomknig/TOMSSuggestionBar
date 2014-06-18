@@ -1,5 +1,5 @@
 platform :ios, '7.0'
 
-pod 'TOMSCoreDataManager', :git => 'https://github.com/TomKnig/TOMSCoreDataManager.git'
-pod 'TOMSMorphingLabel', :path => '../../TOMSMorphingLabel' #:git => 'https://github.com/TomKnig/TOMSMorphingLabel.git'
+pod 'TOMSCoreDataManager'
+pod 'TOMSMorphingLabel'
 pod 'TOMSSuggestionBar', :path => '../'

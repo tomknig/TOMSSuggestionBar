@@ -1,1 +1,1 @@
-../../../../../TOMSMorphingLabel/Classes/TOMSMorphingLabel.h
+../../TOMSMorphingLabel/Classes/TOMSMorphingLabel.h
