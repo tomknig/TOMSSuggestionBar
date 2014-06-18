@@ -25,11 +25,11 @@
 {
     return @[
              @"Steve",
-             @"Woz",
-             @"Tom",
+             @"Sandra",
              @"Steven",
-             @"Shalymar",
-             @"Khader"
+             @"Estland",
+             @"Meste",
+             @"Oste"
              ];
 }
 
