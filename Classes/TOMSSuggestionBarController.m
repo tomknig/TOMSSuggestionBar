@@ -35,7 +35,7 @@
                                                                           predicateForContext:context
                                                                                 attributeName:[self attributeName]];
     } else {
-        self.coreDataFetchController.predicate = [NSPredicate predicateWithFormat:@"%K LIKE[cd] %@", [self attributeName], [NSString stringWithFormat:@"*%@*", context]];
+        self.coreDataFetchController.predicate = [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@", [self attributeName], context];
     }
 }
 
