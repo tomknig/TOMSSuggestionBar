@@ -16,7 +16,7 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 platform :ios, '7.0'
-pod "TOMSSuggestionBar", "~> 0.1.0"
+pod "TOMSSuggestionBar", "~> 0.1.2"
 ```
 
 ## Quick Start

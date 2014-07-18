@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "TOMSSuggestionBar"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "A keyboard accessory that presents suggestions. Suggestions are displayed as morphing labels and fetched from a custom database."
   s.homepage         = "https://github.com/TomKnig/TOMSSuggestionBar"
   s.license          = 'MIT'
