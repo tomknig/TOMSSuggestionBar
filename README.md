@@ -9,7 +9,7 @@ The main approach of this project is to make a control that works like Apples ke
 
 ## Installation with CocoaPods
 
-TOMSMorphingLabel is available through [CocoaPods](http://cocoapods.org). To install
+TOMSSuggestionBar is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 #### Podfile
